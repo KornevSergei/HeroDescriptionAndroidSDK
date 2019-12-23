@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class HeroDescriptionAdapter extends RecyclerView.Adapter<HeroDescriptionAdapter.HeroDescriptionViewHolder> {
 
+    //создаём аррейлист из героев
     ArrayList<HeroDescriptionItem> heroDescriptionItems;
     Context context;
 
@@ -36,6 +37,7 @@ public class HeroDescriptionAdapter extends RecyclerView.Adapter<HeroDescription
     public void onBindViewHolder(@NonNull HeroDescriptionViewHolder viewHolder, int i) {
         HeroDescriptionItem heroDescriptionItem = heroDescriptionItems.get(i);
 
+        //присваиваем героям из Аррейлиста параметры
         viewHolder.heroImageView.setImageResource(heroDescriptionItem.getImageResource());
         viewHolder.title.setText(heroDescriptionItem.getTitle());
         viewHolder.description.setText(heroDescriptionItem.getPosition());
@@ -49,6 +51,7 @@ public class HeroDescriptionAdapter extends RecyclerView.Adapter<HeroDescription
     class HeroDescriptionViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener {
 
+        //обозначем поля
         public ImageView heroImageView;
         public TextView title;
         public TextView description;
@@ -57,23 +60,25 @@ public class HeroDescriptionAdapter extends RecyclerView.Adapter<HeroDescription
             super(itemView);
             itemView.setOnClickListener(this);
 
+            //связываем поля с разметкой
             heroImageView = itemView.findViewById(R.id.heroImageView);
             title = itemView.findViewById(R.id.titleTextView);
             description = itemView.findViewById(R.id.descriptionTextView);
         }
 
+        //добавляем клик
         @Override
         public void onClick(View v) {
 
             int position = getAdapterPosition();
             HeroDescriptionItem heroDescriptionItem = heroDescriptionItems.get(position);
 
-
+            //добавляём клик по контексту "..." и передаём информацию в Интант
             Intent intent = new Intent(context, DescriptionActivity.class);
             intent.putExtra("imageResource", heroDescriptionItem.getImageResource());
             intent.putExtra("title", heroDescriptionItem.getTitle());
             intent.putExtra("description", heroDescriptionItem.getPosition());
-            intent.putExtra("recipe", heroDescriptionItem.getDescription());
+            intent.putExtra("description", heroDescriptionItem.getDescription());
             context.startActivity(intent);
         }
     }

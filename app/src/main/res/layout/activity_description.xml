@@ -26,13 +26,13 @@
                 android:layout_marginEnd="163dp"
                 android:layout_marginBottom="62dp"
                 android:text="TextView"
-                app:layout_constraintBottom_toTopOf="@+id/recipeTextView"
+                app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/recipeTextView"
+                android:id="@+id/descriptionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="163dp"

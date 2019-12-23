@@ -12,13 +12,15 @@ public class DescriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
 
+        //находим и присваиваем
         TextView title = findViewById(R.id.titleTextView);
-        TextView recipe = findViewById(R.id.recipeTextView);
+        TextView description = findViewById(R.id.descriptionTextView);
 
+        //вставляем информацию по ключу
         Intent intent = getIntent();
         if (intent != null) {
             title.setText(intent.getStringExtra("title"));
-            recipe.setText(intent.getStringExtra("recipe"));
+            description.setText(intent.getStringExtra("description"));
         }
     }
 }

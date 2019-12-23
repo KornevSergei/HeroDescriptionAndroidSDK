@@ -1,5 +1,7 @@
 package com.android.uraall.herodescription;
 
+
+//создаём класс для обращения к константам
 public class Utils {
 
     public static final String HERO_1_TITLE = "Sven";

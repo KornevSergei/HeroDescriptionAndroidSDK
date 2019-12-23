@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
 
+    //добавляем плеер для музыки
     MediaPlayer mediaPlayer;
 
     @Override
@@ -21,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Добавляем позиции в Аррейлист
         ArrayList<HeroDescriptionItem> heroDescriptionItems = new ArrayList<>();
 
+        //добавляем в Аррейлист константы из отдельного класса Утилс
         heroDescriptionItems.add(new HeroDescriptionItem(R.drawable.hero_1,
                 Utils.HERO_1_TITLE, Utils.HERO_1_POSITION,
                 Utils.HERO_1_DESCRIPTION));
