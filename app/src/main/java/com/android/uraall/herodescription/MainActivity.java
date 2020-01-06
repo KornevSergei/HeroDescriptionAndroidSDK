@@ -3,6 +3,7 @@ package com.android.uraall.herodescription;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -12,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
-    RecyclerView.LayoutManager layoutManager;
+    GridLayoutManager layoutManager;//переменная разметки при переворачивании
+    private int columnCount;//переменная для колонок
 
     //добавляем плеер для музыки
     MediaPlayer mediaPlayer;
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        columnCount = getResources().getInteger(R.integer.column_count);
 
         //Добавляем позиции в Аррейлист
         ArrayList<HeroDescriptionItem> heroDescriptionItems = new ArrayList<>();
@@ -49,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         adapter = new HeroDescriptionAdapter(heroDescriptionItems, this);
-        layoutManager = new LinearLayoutManager(this);
+        //создаём переключение колонки при переварачивании
+        layoutManager = new GridLayoutManager(this, columnCount);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
